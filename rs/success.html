@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>te amo.</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #000000;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Estilo para os corações */
+        .coracao {
+            position: absolute;
+            font-size: 2rem;
+            color: red;
+            animation: cair 3s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes cair {
+            0% {
+                top: -10%;
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        /* Estilo para o texto rolante */
+        .texto-rolante {
+            position: absolute;
+            top: -100%;
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            color: white;
+            animation: rolar 10s linear infinite;
+        }
+
+        @keyframes rolar {
+            0% {
+                top: -100%;
+            }
+            100% {
+                top: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Texto rolante -->
+    <div class="texto-rolante">
+        Eu te amo. <br><br>
+
+        Estou escrevendo isso às 19:33 do dia 27/01, ansioso para o nosso futuro. <br><br>
+
+        Em tão pouco tempo, você se tornou alguém muito especial para mim, mesmo te vendo poucas vezes ou sem te tocar. Foi isso que me fez acordar hoje com a certeza de que é você quem eu quero na minha vida. Quero compartilhar tudo da minha vida com você. <br><br>
+
+        Quero que saiba que vou te amar muito, minha menina! Espero que nunca duvide disso, ok? Sempre que converso com você, sinto uma felicidade imensa. Não sei nem explicar a energia que você me transmite, mas eu amo isso em você. <br><br>
+
+        Nesse tempo em que temos conversado, foi suficiente para eu começar a te amar. Sabe por quê? Porque você me apoia na minha carreira e outras coisas, está sempre me motivando e me dando forças para alcançar o que eu quero. E sabe aquele seu jeitinho ciumento? Isso também é um dos motivos pelos quais me apaixonei por você. <br><br>
+
+        Não vou mentir, desde quando tivemos nosso primeiro contato no LoL, eu sempre quis me aproximar mais de você. Sempre chamava, mandava mensagem, mas você me ignorava. Ainda assim, acho que finalmente chegou o momento que eu tanto esperava: estar mais próximo de você. <br><br>
+
+        Eu prometo que vou dar o meu melhor para que possamos dar certo. Pode sempre contar comigo, porque eu estarei ao seu lado. <br>
+    </div>
+
+    <script>
+        function criarCoracao() {
+            const coracao = document.createElement("div");
+            coracao.classList.add("coracao");
+            coracao.innerText = "❤️";
+            
+            // Definir a posição inicial aleatória
+            coracao.style.left = `${Math.random() * 100}vw`;
+            
+            // Adicionar o coração ao corpo do HTML
+            document.body.appendChild(coracao);
+
+            // Remover o coração após a animação
+            setTimeout(() => {
+                coracao.remove();
+            }, 1000); // Duração da animação (3 segundos)
+        }
+
+        // Criar corações a cada 200ms
+        setInterval(criarCoracao, 200);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="style/style.css"> <!-- Incluindo o CSS -->
+    <title>Missão Jade</title>
+</head>
+<body>
+    <div class="container">
+        <div id="text"></div>
+        <div class="cursor"></div>
+    </div>
+    <a class="challenge-link" href="index2.html">Ir para o Desafio</a>
+
+    <script>
+        const textElement = document.getElementById('text');
+        const text = `
+Jade, atenção!
+
+Recebemos informações de que um site está escondendo algo muito importante, 
+e você foi escolhida para esta missão. A partir de agora, 
+sua prioridade absoluta é derrubar as barreiras de segurança desse sistema.
+
+O plano é simples:
+1. Localize o ponto fraco no sistema.
+2. Passe despercebida pelos firewalls.
+3. Acesse a área restrita e obtenha os dados que precisamos.
+
+Lembre-se: tempo é essencial. Toda movimentação será monitorada, mas confiamos que suas habilidades estão à altura. Não falhe.
+
+O alvo está marcado, você tem pouco tempo, Jade. Boa sorte.`;
+
+        let index = 0;
+
+        function typeEffect() {
+            if (index < text.length) {
+                textElement.textContent += text[index];
+                index++;
+                setTimeout(typeEffect, 50); // Velocidade de digitação (50ms por caractere)
+            }
+        }
+
+        typeEffect();
+    </script>
+</body>
+</html>

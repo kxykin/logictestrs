@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css"> <!-- Aponta para o CSS -->
+    <title>Desafio 5</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Agora Conecte-se ao WiFi! Dica: 20som..</h1>
+
+        <p class="message" id="message"></p> <!-- Mensagem dinâmica -->
+
+        <form id="wifi-form">
+            <input type="password" id="password" placeholder="Digite a senha" required>
+            <button type="submit">Conectar</button>
+        </form>
+    </div>
+
+    <script>
+        // Senha correta
+        const correctPassword = "20something";
+
+        // Elementos da página
+        const form = document.getElementById("wifi-form");
+        const messageElement = document.getElementById("message");
+
+        // Lógica de validação
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Impede o recarregamento da página
+            const userInput = document.getElementById("password").value.trim();
+
+            if (userInput === correctPassword) {
+                // Senha correta
+                messageElement.textContent = "✅ Conexão bem-sucedida! Redirecionando...";
+                messageElement.style.color = "green";
+                setTimeout(() => {
+                    window.location.href = "final.html"; // Redireciona para a página final
+                }, 1500);
+            } else {
+                // Senha incorreta
+                messageElement.textContent = "❌ Senha incorreta! Tente novamente.";
+                messageElement.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css"> <!-- Incluindo o CSS diretamente -->
+    <title>Desafio 4</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Você precisa conectar a esse IP, basta completá-lo.</h1>
+        <p>Complete o IP lógico: <strong id="date-display"></strong></p>
+
+        <p class="message" id="message"></p> <!-- Mensagem dinâmica -->
+
+        <form id="ip-form">
+            <input type="text" id="response" name="response" required placeholder="Digite o IP completo">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        // Obtém a data atual e gera o IP lógico
+        const now = new Date();
+        const day = String(now.getDate()).padStart(2, "0");
+        const month = String(now.getMonth() + 1).padStart(2, "0"); // Janeiro é 0
+        const year = now.getFullYear();
+        const yearShort = String(year).slice(-2);
+
+        const dateDisplay = `0.0.${day}.${month}.__${yearShort}`; // IP lógico incompleto
+        const expectedAnswer = `0.0.${day}.${month}.${year}`; // IP lógico completo
+        document.getElementById("date-display").textContent = dateDisplay;
+
+        // Lógica de validação
+        const form = document.getElementById("ip-form");
+        const messageElement = document.getElementById("message");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Impede o recarregamento da página
+            const userInput = document.getElementById("response").value.trim();
+
+            if (userInput === expectedAnswer) {
+                // Resposta correta
+                messageElement.textContent = "✅ Conexão bem-sucedida! Redirecionando...";
+                messageElement.style.color = "green";
+                setTimeout(() => {
+                    window.location.href = "index5.html"; // Redireciona para a próxima página
+                }, 1500);
+            } else {
+                // Resposta incorreta
+                messageElement.textContent = "❌ Resposta incorreta! Tente novamente.";
+                messageElement.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>

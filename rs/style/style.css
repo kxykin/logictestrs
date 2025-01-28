@@ -1,0 +1,108 @@
+/* Estilo geral */
+body {
+    background-image: url("../img/img.jpg"); /* Caminho para a imagem de fundo */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    flex-direction: column; /* Permite empilhar os elementos */
+    color: white;
+}
+
+
+.dicas {
+    color: #000;
+}
+
+/* Estilo do contêiner principal */
+.container {
+    background-color: rgba(0, 0, 0, 0.8); /* Preto translúcido */
+    color: #32cd32; /* Verde brilhante */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Centraliza o formulário */
+.container h1 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.container input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #222;
+    color: #32cd32;
+    font-size: 1rem;
+}
+
+.container button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #32cd32;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container button:hover {
+    background-color: #28a428;
+}
+
+/* Estilo da mensagem */
+.message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #ff4d4d; /* Vermelho para mensagens de erro */
+}
+
+#text {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background-color: white;
+    animation: blink 0.6s steps(2, start) infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+/* Link do desafio */
+.challenge-link {
+    margin-top: 20px;
+    text-decoration: none;
+    color: #32cd32;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.challenge-link:hover {
+    color: #28a428;
+}

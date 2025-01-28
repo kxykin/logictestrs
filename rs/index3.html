@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css"> <!-- Incluindo o CSS diretamente -->
+    <title>Desafio 3</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Digite a senha para continuar:</h1>
+        <p class="message" id="message"></p> <!-- Mensagem dinâmica -->
+
+        <form id="password-form">
+            <input type="password" id="password" name="password" required placeholder="Senha">
+            <button type="submit">Enviar</button>
+        </form>
+
+        <a href="dcs.html" target="_blank" class="dicas">Dicas</a> <!-- Link simples para dicas -->
+    </div>
+
+    <script>
+        // Senha correta
+        const correctPassword = "t3am0";
+
+        // Elementos da página
+        const form = document.getElementById("password-form");
+        const messageElement = document.getElementById("message");
+
+        // Lógica de validação
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Impede o recarregamento da página
+            const userInput = document.getElementById("password").value.trim();
+
+            if (userInput === correctPassword) {
+                // Senha correta
+                messageElement.textContent = "✅ Senha correta! Redirecionando...";
+                messageElement.style.color = "green";
+                setTimeout(() => {
+                    window.location.href = "index4.html"; // Redireciona para a próxima página
+                }, 1500);
+            } else {
+                // Senha incorreta
+                messageElement.textContent = "❌ Senha incorreta! Tente novamente.";
+                messageElement.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>

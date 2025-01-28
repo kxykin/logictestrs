@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css"> <!-- Incluindo o CSS diretamente -->
+    <title>Desafio 1</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Desafio Cifra de Cesar</h1>
+        <p class="cipher-text">Texto Cifrado: <span id="cipher-text"></span></p>
+        <form id="challenge-form">
+            <label for="tentativa">Digite a frase correta:</label>
+            <input type="text" id="tentativa" name="tentativa" required>
+            <button type="submit">Verificar</button>
+        </form>
+        <p class="message" id="message"></p>
+    </div>
+
+    <script>
+        // Função para aplicar a Cifra de César
+        function cifraCesar(texto, deslocamento) {
+            let resultado = "";
+            for (let char of texto) {
+                if (/[a-zA-Z]/.test(char)) { // Verifica se é uma letra
+                    const base = char === char.toUpperCase() ? 65 : 97; // ASCII de 'A' ou 'a'
+                    resultado += String.fromCharCode(((char.charCodeAt(0) - base + deslocamento) % 26) + base);
+                } else {
+                    resultado += char; // Mantém caracteres que não são letras
+                }
+            }
+            return resultado;
+        }
+
+        // Configuração inicial do desafio
+        const fraseOriginal = "sou gostosa"; // Frase original
+        const deslocamento = 3; // Deslocamento da cifra
+        const fraseCifrada = cifraCesar(fraseOriginal, deslocamento); // Aplica a cifra
+        document.getElementById("cipher-text").textContent = fraseCifrada; // Exibe a frase cifrada
+
+        // Lógica de verificação no frontend
+        const form = document.getElementById("challenge-form");
+        const messageElement = document.getElementById("message");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Impede o reload da página
+            const tentativa = document.getElementById("tentativa").value.trim();
+
+            if (tentativa.toLowerCase() === fraseOriginal.toLowerCase()) {
+                // Resposta correta
+                messageElement.textContent = "✅ Parabéns! Você acertou!";
+                messageElement.style.color = "green";
+                setTimeout(() => {
+                    window.location.href = "index3.html"; // Redireciona para a próxima página
+                }, 1500);
+            } else {
+                // Resposta incorreta
+                messageElement.textContent = "❌ Tente novamente! Essa não é a frase correta.";
+                messageElement.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>
